@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./tasks.css";
 import { taskData } from "../../utils/taskData";
 import TaskGroup from "./TaskGroup";
+import Task from "./Task";
 
 export default class TasksContainer extends Component {
     constructor(){
@@ -57,23 +58,14 @@ export default class TasksContainer extends Component {
                     this.state.tasks.map(userTask => {
                         // condition ? return true thing : return false thing
                         return userTask.type === type ? 
-                        <div 
-                        key={userTask._id}
-                        className="card"
-                    >
-                        <div className="card-body row">
-                            <div className="col-md-10">
-                                {userTask.task}
-                            </div>
-                            <div className="col-md-2">
-                                <button className="btn btn-danger mr-2" type="button">Delete</button>
-                                <button className="btn btn-primary mr-2" type="button">Edit</button>
-
-                            </div>
-
-                        </div>
-
-                    </div> : null;
+                        <Task
+                            key={userTask._id}
+                            id={userTask._id}
+                            task={userTask.task}
+                            deleteTask={this.deleteTask}
+                            editTask={() => this.editTask(userTask)}
+                        />
+                        : null;
                     })
                 }
     
