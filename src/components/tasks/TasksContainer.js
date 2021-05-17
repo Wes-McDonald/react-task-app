@@ -30,7 +30,13 @@ export default class TasksContainer extends Component {
     };
 
     handleSubmittedEditedTask = () => {
-
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                tasks: prevState.tasks.filter(task => task._id !== prevState.newTask._id),
+                canEdit: false
+            }
+        })
     };
 
     handleCancel = () => {
