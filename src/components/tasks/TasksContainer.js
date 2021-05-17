@@ -26,7 +26,7 @@ export default class TasksContainer extends Component {
     };
 
     editTask = (task) => {
-
+        this.setState({newTask: task, canEdit: true})
     };
 
     handleSubmittedEditedTask = () => {
