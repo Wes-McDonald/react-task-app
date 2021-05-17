@@ -7,11 +7,30 @@ export default class TasksContainer extends Component {
     constructor(){
         super();
         this.state = {
-            tasks: taskData[0].tasks
+            tasks: taskData[0].tasks,
+            newTask: {task: "", type: "personal", _creator: taskData[0].username},
+            canEdit: false
         }
-        this.logTasks = this.logTasks.bind(this);
         this.viewTasksHandler = this.viewTasksHandler.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     };
+
+    deleteTask = (id) => {
+
+    }
+
+    editTask = (task) => {
+
+    }
+
+    handleSubmittedEditedTask = () => {
+
+    }
+
+    handleCancel = () => {
+
+    }
 
     viewTasksHandler(type) {
         return(                
@@ -45,9 +64,13 @@ export default class TasksContainer extends Component {
         )
     }
 
-    logTasks() {
-        console.log(this.allTaskTypes());
-    };
+    handleChange(event) {
+
+    }
+
+    handleSubmit(event) {
+        
+    }
 
     render() {
         const allTaskTypes = (() => {
