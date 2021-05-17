@@ -1,13 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class TaskGroup extends Component {
-
-    render(){
+const TaskGroup = (props) => {
+    let {tasksHandler, title} = props;
+    
         return(
             <div>
-                <h4 className="text-center">{this.props.title}</h4>
-                {this.props.tasksHandler}
+                <h4 className="text-center">{title}</h4>
+                {tasksHandler}
             </div>
         )
-    }
-}
+    
+};
+
+export default TaskGroup;
