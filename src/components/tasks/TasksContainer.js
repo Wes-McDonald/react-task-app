@@ -17,20 +17,25 @@ export default class TasksContainer extends Component {
     };
 
     deleteTask = (id) => {
-
-    }
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                tasks: prevState.tasks.filter(task => task._id !== id)
+            }
+        })
+    };
 
     editTask = (task) => {
 
-    }
+    };
 
     handleSubmittedEditedTask = () => {
 
-    }
+    };
 
     handleCancel = () => {
 
-    }
+    };
 
     viewTasksHandler(type) {
         return(                
@@ -66,11 +71,11 @@ export default class TasksContainer extends Component {
 
     handleChange(event) {
 
-    }
+    };
 
     handleSubmit(event) {
-        
-    }
+
+    };
 
     render() {
         const allTaskTypes = (() => {
@@ -100,5 +105,5 @@ export default class TasksContainer extends Component {
 
             </div>
             )
-    }
+    };
 }
