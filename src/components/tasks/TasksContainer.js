@@ -40,7 +40,13 @@ export default class TasksContainer extends Component {
     };
 
     handleCancel = () => {
-
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                canEdit: false,
+                newTask: {task: "", type: "personal", _creator: taskData[0].username}
+            }
+        })
     };
 
     viewTasksHandler(type) {
