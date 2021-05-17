@@ -100,31 +100,46 @@ export default class TasksContainer extends Component {
 
     render() {
         const allTaskTypes = (() => {
-            let taskTypes = []; // ["personal", "work", "goals"];
-                this.state.tasks.forEach(task => taskTypes.push(task.type))
-             
-                let filteredTypes = taskTypes.filter((type, index) => taskTypes.indexOf(type) === index);
-           
-                return filteredTypes;
+            let taskTypes = [];
+            this.state.tasks.forEach(task => taskTypes.push(task.type))
+            let filteredTypes = taskTypes.filter((type, index) => taskTypes.indexOf(type) === index);
+
+            return filteredTypes;
         })();
         return(
             <div className="Tasks container mx-auto">
-                {/* <button onClick={this.logTasks}>Log Tasks</button> */}
 
-              {allTaskTypes.map((type, index) => {
-                return < TaskGroup
-                            key={index}
-                            title={type} 
-                            tasksHandler = {this.viewTasksHandler(type)}
-                        />})
-              }
-              
-              
-              
-                
+                <form className="form-inline justify-content-center form-content" onSubmit={this.handleSubmit}>
+                   
+                    <div className="form-group p-2">
+                        <label>Task:</label>
+                        <input className="m1-2" type="text" name="task" value={this.state.newTask.task} onChange={this.handleChange}/>
+                    </div>
 
+                    <div className="form-group p-2">
+                        <label>Type:</label>
+                        <select className="m1-2" type="text" name="type" value={this.state.newTask.type} onChange={this.handleChange}>
+                            {allTaskTypes.map((type, index) => <option key={index} value={type}>{type}</option>)}
+                        </select>
+                    </div>
 
+                    <input hidden={this.state.canEdit} className="btn btn-outline-success mr-2" type="submit" value="Add Task"/>
+                    <input hidden={!this.state.canEdit} className="btn btn-outline-success mr-2" type="submit" onClick={this.handleSubmittedEditedTask} value="Edit Task"/>
+                    <input hidden={!this.state.canEdit} className="btn btn-outline-secondary mr-2" type="button" onClick={this.handleCancel} value="Cancel"/>
+
+                </form>
+
+                {
+                    allTaskTypes.map((type, index) => {
+                        return < TaskGroup
+                                    key={index}
+                                    title={type}
+                                    taskHandler = {this.viewTasksHandler(type)}
+                                />
+                    })
+                }
             </div>
-            )
-    };
+        )
+    }
+
 }
