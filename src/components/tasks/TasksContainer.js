@@ -74,7 +74,8 @@ export default class TasksContainer extends Component {
     }
 
     handleChange(event) {
-
+        let newTask = {...this.state.newTask, [event.target.name]: event.target.value};
+        this.setState({newTask: newTask})
     };
 
     handleSubmit(event) {
