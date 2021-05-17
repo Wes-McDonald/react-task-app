@@ -3,6 +3,7 @@ import "./tasks.css";
 import { taskData } from "../../utils/taskData";
 import TaskGroup from "./TaskGroup";
 import Task from "./Task";
+import { myGuid } from "../../utils/guidGenerator";
 
 export default class TasksContainer extends Component {
     constructor(){
@@ -79,7 +80,22 @@ export default class TasksContainer extends Component {
     };
 
     handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state.newTask);
+        let newTask = {...this.state.newTask, _id: myGuid()};
 
+        if (!newTask.task) {
+            alert("Please fill out a task.")
+        }
+        else {
+            this.setState((prevState) => {
+                return {
+                    ...prevState,
+                    tasks: prevState.tasks.concat(newTask),
+                    newTask: {task: "", type: "personal", _creator: taskData[0].username}
+                }
+            })
+        }
     };
 
     render() {
