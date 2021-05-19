@@ -14,7 +14,7 @@ function App() {
       <HeaderContainer />
       <Container fluid>
         <Row>
-          <Col xs={1} className="sidebar-wrapper">
+          <Col xs={2} className="sidebar-wrapper">
             <SidebarContainer />
           </Col>
           <Col xs={10}>

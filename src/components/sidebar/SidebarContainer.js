@@ -8,7 +8,7 @@ const SidebarContainer = (props) => {
     return(
         <>
             <Nav
-            classname="col-md-12 d-none d-md-block Sidebar"
+            className="col-md-12 d-none d-md-block Sidebar"
             activeKey="/home"
             onSelect={selectedKey => props.history.push(selectedKey)}>
                 <div className="sidebar-sticky"></div>
