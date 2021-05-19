@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./tasks.css";
-import { taskData } from "../../utils/taskData";
 import TaskGroup from "./TaskGroup";
 import Task from "./Task";
 import { myGuid } from "../../utils/guidGenerator";

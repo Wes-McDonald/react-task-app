@@ -24,6 +24,7 @@ class LoginContainer extends Component {
     };
 
     render(){
+        console.log(this.props.match)
         return(
             <>
             <form className="form-inline justify-content-center form-content" onSubmit={this.handleSubmit}>
