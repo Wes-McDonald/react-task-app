@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
 
+
 const HomeContainer = () => {
     return(
         <div>
@@ -8,5 +9,17 @@ const HomeContainer = () => {
         </div>
     )
 };
+
+// const LoggedInWarning = (WrappedComponent) => {
+//     return (props) => {
+//         return(
+//             <>
+//                 {props.isAuth ? <WrappedComponent {...props} /> : <LoginContainer />}
+//             </>
+//         )
+//     }
+// }
+
+// const HomeContainerWithLogin = LoggedInWarning(HomeContainer);
 
 export default HomeContainer;

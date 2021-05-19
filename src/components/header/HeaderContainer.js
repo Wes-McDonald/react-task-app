@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import "./header.css";
 
-const HeaderContainer = (props) => {
-    const appName = "Todoey";
-    const routes = [{path: "/", label: "Home"}, {path: "/tasks", label: "Tasks"}, {path: "/journal", label: "Journal"}]
+const HeaderContainer = ({appName, routes, logout, isAuth, user}) => {
 
     return(
         <Navbar className="Header">
@@ -22,10 +20,10 @@ const HeaderContainer = (props) => {
 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text id="navbarText" className="p-2">
-            Signed in as: [enter user here]
+            { isAuth ? `Signed in as: ${user}` : null }
           </Navbar.Text>
-          <Navbar.Text id="navbarText" className="p-2">
-            [login or logout]
+          <Navbar.Text id="navbarText" className="p-2" onClick={logout}>
+            { isAuth ? "Logout" : null }
           </Navbar.Text>
         </Navbar.Collapse>
     </Navbar>

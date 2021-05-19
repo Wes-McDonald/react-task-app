@@ -6,11 +6,11 @@ import Task from "./Task";
 import { myGuid } from "../../utils/guidGenerator";
 
 export default class TasksContainer extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            tasks: taskData[0].tasks,
-            newTask: {task: "", type: "personal", _creator: taskData[0].username},
+            tasks: this.props.tasks,
+            newTask: {task: "", type: "personal", _creator: this.props.user},
             canEdit: false
         }
         this.viewTasksHandler = this.viewTasksHandler.bind(this);
@@ -51,7 +51,7 @@ export default class TasksContainer extends Component {
             return {
                 ...prevState,
                 canEdit: false,
-                newTask: {task: "", type: "personal", _creator: taskData[0].username}
+                newTask: {task: "", type: "personal", _creator: this.props.user}
             }
         })
     }
@@ -96,7 +96,7 @@ export default class TasksContainer extends Component {
                 return {
                     ...prevState, 
                     tasks: prevState.tasks.concat(newTask),
-                    newTask: {task: "", type: "personal", _creator: taskData[0].username}
+                    newTask: {task: "", type: "personal", _creator: this.props.user}
                 }
             })
         }
